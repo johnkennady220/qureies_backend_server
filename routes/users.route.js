@@ -84,7 +84,7 @@ router.get('/profile/:name', userAuth, async function(request,response){
         })
  router.get('/query', userAuth, async function(request,response){
    
-            const getingQuery = await getingquerys()
+            const getingQuery = await getingquerys(request)
         
         response.send(getingQuery)
         })

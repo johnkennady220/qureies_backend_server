@@ -35,7 +35,7 @@ const router = express.Router();
     
             const {completedmanagername,emailcontent,status,details}= request.body
             const {id} = request.params
-            const updatingQueryDetails = await updatingquerydetails(id, status, emailcontent, completedmanagername)
+            const updatingQueryDetails = await updatingquerydetails(id, status, emailcontent, completedmanagername,details)
            
           
           var mailOptions = {
@@ -52,7 +52,7 @@ const router = express.Router();
           
           router.get('/query', managerAuth, async function(request,response){
               
-              const getingQuerysToManager = await getingquerystomanager()
+              const getingQuerysToManager = await getingquerystomanager(request)
              
           
           response.send(getingQuerysToManager)
