@@ -1,6 +1,6 @@
-import express from 'express'
+import express from 'express';
 import { MongoClient, ObjectId } from 'mongodb'
-import cors from 'cors'
+import cors from 'cors';
 import nodemailer from 'nodemailer'
 import bcrypt from 'bcrypt'
 import  jwt  from 'jsonwebtoken'
@@ -17,7 +17,7 @@ dotenv.config()
 
 const app = express()
 
-const PORT = process.env.PORT
+const port = process.env.PORT ||8000;
 
 
 
@@ -58,7 +58,9 @@ app.use('/helpdesk',helperRouter)
 
 
 
-app.listen(PORT)
+app.listen(port, ()=>{
+  console.log(`Server is running on port: ${port}`);
+});
 
 export {client,bcrypt,jwt,generator,transporter,ObjectId}
 export default genHashesPassword
